@@ -88,6 +88,7 @@ dependencies:
   flutter_paypal: ^0.2.0
   flutter_paypal_payment: ^1.0.6
   flutter_local_notifications: ^15.0.0
+  flutter_screenutil: ^5.8.1
   rxdart: ^0.27.5
   flutter_timezone: ^1.0.6
 dev_dependencies:

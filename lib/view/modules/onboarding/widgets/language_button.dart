@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+import 'package:jawla/view%20model/on_boarding_cubit.dart';
+import 'package:sizer/sizer.dart';
+
+class LanguageButton extends StatelessWidget {
+  final OnBoardingCubit controller;
+  final String name;
+  final void Function()? function;
+  final Color? color;
+  final Color borderColor;
+  const LanguageButton(
+      {super.key,
+      required this.controller,
+      required this.name,
+      required this.color,
+      required this.borderColor,
+      required this.function});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+        onTap: function,
+        child: Container(
+            decoration: BoxDecoration(
+                border: Border.all(color: borderColor, width: 2),
+                color: color,
+                borderRadius: BorderRadius.circular(12.sp)),
+            width: 45.w,
+            height: 6.h,
+            child: Center(
+              child: Text(
+                name,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 13.sp,
+                    color: Colors.white),
+              ),
+            )));
+  }
+}
