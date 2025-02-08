@@ -11,8 +11,8 @@ class YellowPyramids extends StatelessWidget {
         bottom: 32.h,
         right: 17.w,
         child: Container(
-          width: 30.w,
-          height: 13.h,
+          width: 35.w,
+          height: 15.h,
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(AppImages().yellowPyramids))),

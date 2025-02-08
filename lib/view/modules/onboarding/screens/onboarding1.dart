@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/colors.dart';
 import 'package:jawla/core/constants/images.dart';
-import 'package:jawla/view%20model/on_boarding_cubit.dart';
+import 'package:jawla/view%20model/onboarding/on_boarding_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jawla/view/modules/onboarding/widgets/custom_button.dart';
 import 'package:jawla/view/modules/onboarding/widgets/white_ellipse.dart';
@@ -25,6 +25,15 @@ class OnBoarding1 extends StatelessWidget {
               height: 100.h,
               child: Stack(
                 children: [
+                  Container(
+                    width: 100.w,
+                    height: 100.h,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(AppImages().bj3),
+                            fit: BoxFit.cover,
+                            opacity: 0.1)),
+                  ),
                   Positioned(
                     width: 80.w,
                     height: 35.h,

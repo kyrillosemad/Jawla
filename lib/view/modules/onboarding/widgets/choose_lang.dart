@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/colors.dart';
-import 'package:jawla/view%20model/on_boarding_cubit.dart';
+import 'package:jawla/view%20model/onboarding/on_boarding_cubit.dart';
 import 'package:jawla/view/modules/onboarding/widgets/language_button.dart';
 import 'package:sizer/sizer.dart';
 

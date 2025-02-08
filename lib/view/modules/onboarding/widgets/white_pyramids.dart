@@ -11,8 +11,8 @@ class WhitePyramids extends StatelessWidget {
         bottom: 15.h,
         left: 25.w,
         child: Container(
-          width: 30.w,
-          height: 13.h,
+          width: 35.w,
+          height: 15.h,
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(AppImages().whitePyramids))),

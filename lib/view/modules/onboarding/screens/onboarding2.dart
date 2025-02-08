@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jawla/core/constants/colors.dart';
 import 'package:jawla/core/constants/images.dart';
-import 'package:jawla/view%20model/on_boarding_cubit.dart';
+import 'package:jawla/view%20model/onboarding/on_boarding_cubit.dart';
 import 'package:jawla/view/modules/onboarding/widgets/J_logo.dart';
 import 'package:jawla/view/modules/onboarding/widgets/choose_lang.dart';
 import 'package:jawla/view/modules/onboarding/widgets/custom_button.dart';
