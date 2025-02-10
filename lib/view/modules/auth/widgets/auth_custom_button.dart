@@ -11,7 +11,7 @@ class AuthCustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: function,
       child: Container(
         width: 90.w,
         height: 7.h,

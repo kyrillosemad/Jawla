@@ -29,7 +29,6 @@ class SignIn extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(15),
                     width: 100.w,
-                    height: 100.h,
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -68,7 +67,7 @@ class SignIn extends StatelessWidget {
                                         },
                                       ),
                                       SizedBox(
-                                        height: 4.h,
+                                        height: 3.h,
                                       ),
                                       BlocBuilder<SignInCubit, AppState>(
                                         builder: (context, state) {

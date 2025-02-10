@@ -28,7 +28,6 @@ class SignUp extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(15),
                   width: 100.w,
-                  height: 100.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -62,7 +61,7 @@ class SignUp extends StatelessWidget {
                                 function: () {},
                               ),
                               SizedBox(
-                                height: 4.h,
+                                height: 3.h,
                               ),
                               CustomTextFormField(
                                 function: () {},
@@ -78,7 +77,7 @@ class SignUp extends StatelessWidget {
                                 },
                               ),
                               SizedBox(
-                                height: 4.h,
+                                height: 3.h,
                               ),
                               BlocBuilder<SignupCubit, AppState>(
                                 builder: (context, state) {
@@ -102,7 +101,7 @@ class SignUp extends StatelessWidget {
                                         },
                                       ),
                                       SizedBox(
-                                        height: 4.h,
+                                        height: 3.h,
                                       ),
                                       CustomTextFormField(
                                         function: () {

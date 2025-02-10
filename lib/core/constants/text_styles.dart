@@ -3,5 +3,7 @@ import 'package:jawla/core/constants/colors.dart';
 
 class AppTextStyles {
   TextStyle mainTitles = const TextStyle(
-      fontSize: 27, fontWeight: FontWeight.bold, color: AppColor.primaryColor);
+      fontSize: 25, fontWeight: FontWeight.bold, color: AppColor.primaryColor);
+
+  TextStyle mainBodies = const TextStyle(fontSize: 15, color: Colors.white);
 }

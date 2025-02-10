@@ -5,6 +5,4 @@ class AppRoutes {
   final String signIn = "signIn";
   final String signUp = "signUp";
   final String forgetPassword = "forgetPassword";
-  final String checkEmail = "checkEmail";
-  final String newPassword = "newPassword";
 }
