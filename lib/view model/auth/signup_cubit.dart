@@ -7,7 +7,7 @@ import 'package:jawla/view%20model/app_state.dart';
 class SignupCubit extends Cubit<AppState> {
   SignupCubit() : super(Initial());
   bool securepassword = false;
-  bool secureConfirmedpassword = false;
+  bool secureConfirmedPassword = false;
   GlobalKey<FormState> signUpKey = GlobalKey<FormState>();
   TextEditingController userNameCont = TextEditingController();
   TextEditingController emailCont = TextEditingController();
@@ -24,7 +24,11 @@ class SignupCubit extends Cubit<AppState> {
   }
 
   changeConfirmedSecure() {
-    secureConfirmedpassword = !secureConfirmedpassword;
+    secureConfirmedPassword = !secureConfirmedPassword;
     emit(Initial());
+  }
+
+  goToHomePage() {
+    Get.offAllNamed(AppRoutes().bottomNav);
   }
 }

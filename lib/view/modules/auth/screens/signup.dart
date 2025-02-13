@@ -111,13 +111,13 @@ class SignUp extends StatelessWidget {
                                             controller.confirmPasswordCont,
                                         hintText: "confirm your password",
                                         icon: controller
-                                                    .secureConfirmedpassword ==
+                                                    .secureConfirmedPassword ==
                                                 true
                                             ? Icons.visibility_off
                                             : Icons.visibility,
                                         labelText: "password",
                                         obsecure:
-                                            controller.secureConfirmedpassword,
+                                            controller.secureConfirmedPassword,
                                         textInputType: TextInputType.name,
                                         validator: (value) {
                                           validator(value, 50, 3, "password");
@@ -133,7 +133,11 @@ class SignUp extends StatelessWidget {
                       SizedBox(
                         height: 5.h,
                       ),
-                      AuthCustomButton(function: () {}, name: "Sign Up"),
+                      AuthCustomButton(
+                          function: () {
+                            controller.goToHomePage();
+                          },
+                          name: "Sign Up"),
                       SizedBox(
                         height: 3.h,
                       ),

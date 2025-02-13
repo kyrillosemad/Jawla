@@ -24,4 +24,8 @@ class SignInCubit extends Cubit<AppState> {
     securepassword = !securepassword;
     emit(Initial());
   }
+
+  goToHomePage() {
+    Get.offAllNamed(AppRoutes().bottomNav);
+  }
 }

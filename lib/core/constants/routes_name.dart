@@ -5,4 +5,8 @@ class AppRoutes {
   final String signIn = "signIn";
   final String signUp = "signUp";
   final String forgetPassword = "forgetPassword";
+  final String bottomNav = "bottom";
+  final String homePage = "homePage";
+  final String discover = "discover";
+  final String account = "account";
 }

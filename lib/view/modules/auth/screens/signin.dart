@@ -103,7 +103,11 @@ class SignIn extends StatelessWidget {
                           SizedBox(
                             height: 5.h,
                           ),
-                          AuthCustomButton(function: () {}, name: "Sign In"),
+                          AuthCustomButton(
+                              function: () {
+                                controller.goToHomePage();
+                              },
+                              name: "Sign In"),
                           SizedBox(
                             height: 8.h,
                           ),
