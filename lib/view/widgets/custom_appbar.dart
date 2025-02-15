@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jawla/core/constants/colors.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({super.key});
@@ -15,7 +16,11 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(fontSize: 15),
       ),
       leading: IconButton(
-        icon: const Icon(Icons.arrow_back_ios_new),
+        icon: const Icon(
+          Icons.arrow_back_ios_new,
+          color: AppColor.primaryColor,
+          size: 20,
+        ),
         onPressed: () {
           Get.back();
         },

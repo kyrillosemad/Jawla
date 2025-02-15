@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jawla/core/constants/colors.dart';
 import 'package:jawla/view%20model/auth/forget_password_cubit.dart';
-import 'package:jawla/view/modules/auth/widgets/custom_appbar.dart';
+import 'package:jawla/view/widgets/custom_appbar.dart';
 import 'package:jawla/view/modules/auth/widgets/forget_password_page1.dart';
 import 'package:jawla/view/modules/auth/widgets/forget_password_page2.dart';
 import 'package:jawla/view/modules/auth/widgets/forget_password_page3.dart';

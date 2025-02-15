@@ -9,4 +9,8 @@ class AppRoutes {
   final String homePage = "homePage";
   final String discover = "discover";
   final String account = "account";
+  final String programDetails = "programDetails";
+  final String paymentMethod = "paymentMethod";
+  final String completePayment = "completePayment";
+  final String successPage = "successPage";
 }
