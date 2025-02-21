@@ -9,6 +9,7 @@ import 'package:jawla/view/modules/homepage/screens/homepage.dart';
 import 'package:jawla/view/modules/onboarding/screens/onboarding1.dart';
 import 'package:jawla/view/modules/onboarding/screens/onboarding2.dart';
 import 'package:jawla/view/modules/onboarding/screens/onboarding3.dart';
+import 'package:jawla/view/modules/special_services/screens/special_services.dart';
 import 'package:jawla/view/modules/travel_programs/screens/complete_payment.dart';
 import 'package:jawla/view/modules/travel_programs/screens/payment_method.dart';
 import 'package:jawla/view/modules/travel_programs/screens/program_details.dart';
@@ -28,4 +29,5 @@ Map<String, Widget Function(BuildContext)> routes = {
   AppRoutes().paymentMethod: (context) => const PaymentMethod(),
   AppRoutes().completePayment: (context) => const CompletePayment(),
   AppRoutes().successPage: (context) => const SuccessPage(),
+  AppRoutes().specialServices: (context) => const SpecialServices(),
 };

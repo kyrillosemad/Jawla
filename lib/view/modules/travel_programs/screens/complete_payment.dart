@@ -13,7 +13,7 @@ class CompletePayment extends StatelessWidget {
         create: (context) => CompletePaymentCubit(),
         child: Builder(
           builder: (context) {
-            var controller = context.read<CompletePaymentCubit>();
+            //      var controller = context.read<CompletePaymentCubit>();
             return Scaffold(
               backgroundColor: AppColor.secondColor,
               body: SizedBox(

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/view%20model/homepage/homepage_cubit.dart';
+import 'package:jawla/view/modules/homepage/widgets/special_services_widget.dart';
 import 'package:sizer/sizer.dart';
 
 class HomePageCustomServices extends StatelessWidget {
-  const HomePageCustomServices({super.key});
+  final HomePageCubit controller;
+  const HomePageCustomServices({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -34,46 +37,35 @@ class HomePageCustomServices extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 98.w,
-            height: 12.h,
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: 3,
-              itemBuilder: (BuildContext context, int index) {
-                return InkWell(
-                  onTap: () {},
-                  child: Container(
-                    margin: const EdgeInsets.all(10),
-                    width: 32.w,
-                    height: 12.h,
-                    decoration: BoxDecoration(
-                        color: AppColor.primaryColor,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                        const Icon(
-                          Icons.car_repair,
-                          size: 33,
-                          color: AppColor.secondColor,
-                        ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                        const Text(
-                          "Car",
-                          style: TextStyle(fontSize: 17),
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
+              width: 98.w,
+              height: 12.h,
+              child: ListView(
+                physics: const BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                children: [
+                  SpecialServicesWidget(
+                      function: () {
+                        controller.index = 0;
+                        controller.goToSpecialServices();
+                      },
+                      icon: Icons.local_taxi_rounded,
+                      name: "Car"),
+                  SpecialServicesWidget(
+                      function: () {
+                        controller.index = 1;
+                        controller.goToSpecialServices();
+                      },
+                      icon: Icons.person,
+                      name: "Tour Guide"),
+                  SpecialServicesWidget(
+                      function: () {
+                        controller.index = 2;
+                        controller.goToSpecialServices();
+                      },
+                      icon: Icons.workspace_premium,
+                      name: "Custom Program"),
+                ],
+              )),
         ],
       ),
     );

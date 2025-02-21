@@ -5,7 +5,7 @@ import 'package:jawla/core/functions/validator.dart';
 import 'package:jawla/view%20model/auth/forget_password_cubit.dart';
 import 'package:jawla/view/modules/auth/widgets/auth_custom_button.dart';
 import 'package:jawla/view/modules/auth/widgets/auth_page_title.dart';
-import 'package:jawla/view/modules/auth/widgets/custom_text_form_field.dart';
+import 'package:jawla/view/widgets/custom_text_form_field.dart';
 import 'package:sizer/sizer.dart';
 
 class ForgetPasswordPage1 extends StatelessWidget {

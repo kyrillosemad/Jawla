@@ -6,11 +6,18 @@ import 'package:jawla/view%20model/app_state.dart';
 
 class HomePageCubit extends Cubit<AppState> {
   HomePageCubit() : super(Initial());
+  int index = 0;
 
   GlobalKey<FormState> searchKey = GlobalKey<FormState>();
   TextEditingController searchCont = TextEditingController();
 
   goToProgramDetails() {
     Get.toNamed(AppRoutes().programDetails);
+  }
+
+  goToSpecialServices() {
+    Get.toNamed(AppRoutes().specialServices, arguments: {
+      "serviceIndex": index,
+    });
   }
 }

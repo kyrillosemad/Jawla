@@ -13,4 +13,5 @@ class AppRoutes {
   final String paymentMethod = "paymentMethod";
   final String completePayment = "completePayment";
   final String successPage = "successPage";
+  final String specialServices = "specialServices";
 }

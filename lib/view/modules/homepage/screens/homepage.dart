@@ -37,7 +37,9 @@ class HomePage extends StatelessWidget {
                       SizedBox(
                         height: 1.h,
                       ),
-                      const HomePageCustomServices(),
+                      HomePageCustomServices(
+                        controller: controller,
+                      ),
                       HomePageComeToEnd(
                         controller: controller,
                       ),

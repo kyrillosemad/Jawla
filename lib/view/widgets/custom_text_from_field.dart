@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/colors.dart';
 import 'package:sizer/sizer.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField2 extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextEditingController controller;
   final bool obsecure;
@@ -11,7 +11,7 @@ class CustomTextFormField extends StatelessWidget {
   final String hintText;
   final IconData? icon;
   final void Function()? function;
-  const CustomTextFormField(
+  const CustomTextFormField2(
       {super.key,
       required this.controller,
       required this.hintText,
@@ -37,7 +37,7 @@ class CustomTextFormField extends StatelessWidget {
           labelStyle: const TextStyle(
             color: AppColor.primaryColor,
           ),
-          contentPadding: const EdgeInsets.only(left: 35, top: 43),
+          contentPadding: const EdgeInsets.only(left: 35, top: 35),
           focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: AppColor.primaryColor),
               borderRadius: BorderRadius.all(Radius.circular(25))),
