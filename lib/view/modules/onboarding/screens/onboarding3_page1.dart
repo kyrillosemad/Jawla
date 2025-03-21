@@ -14,7 +14,7 @@ class OnBoarding3Page1 extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // صورة
+
         Container(
           width: 100.w,
           height: 45.h,
@@ -27,7 +27,7 @@ class OnBoarding3Page1 extends StatelessWidget {
         ),
         SizedBox(height: 5.h),
 
-        // زر Sign Up
+
         LoginOrSignup(
           borderColor: AppColor.secondColor2,
           color: Colors.transparent,
@@ -37,7 +37,7 @@ class OnBoarding3Page1 extends StatelessWidget {
         ),
         SizedBox(height: 2.h),
 
-        // زر Sign In
+
         LoginOrSignup(
           borderColor: Colors.transparent,
           color: AppColor.secondColor2,

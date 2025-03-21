@@ -7,14 +7,11 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-        top: 5.h,
-        left: 3.w,
-        child: Container(
-          width: 40.w,
-          height: 10.h,
-          decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(AppImages().logo2))),
-        ));
+    return Container(
+      width: 40.w,
+      height: 10.h,
+      decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(AppImages().logo2))),
+    );
   }
 }

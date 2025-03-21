@@ -8,12 +8,20 @@ class Request {
   Future<Either<Status, Map>> request(String link, Map data) async {
     try {
       if (await checkInternet()) {
-        var response = await http.post(Uri.parse(link), body: data);
+        var response = await http.post(
+          Uri.parse(link),
+          body: jsonEncode(data),
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
+        );
         if (response.statusCode == 200 || response.statusCode == 201) {
           var data = jsonDecode(response.body);
           return right(data);
         } else {
-          return left(Status.serverFailure);
+          var errors = jsonDecode(response.body);
+          return left(Status.apiFailure(errors));
         }
       } else {
         return left(Status.internetFailure);
