@@ -41,10 +41,7 @@ class HomePageAppbar extends StatelessWidget {
                         color: AppColor.secondColor,
                       )),
                   IconButton(
-                      onPressed: () {
-                        print("fdgdf");
-                        controller.logOut();
-                      },
+                      onPressed: () {},
                       icon: const Icon(
                         Icons.menu,
                         size: 27,

@@ -3,9 +3,13 @@ import 'package:jawla/core/constants/routes_name.dart';
 import 'package:jawla/view/modules/auth/screens/forget_password.dart';
 import 'package:jawla/view/modules/auth/screens/signin.dart';
 import 'package:jawla/view/modules/auth/screens/signup.dart';
+import 'package:jawla/view/modules/homepage/screens/account.dart';
+import 'package:jawla/view/modules/homepage/screens/bookings.dart';
 import 'package:jawla/view/modules/homepage/screens/bottom_nav.dart';
 import 'package:jawla/view/modules/homepage/screens/discover.dart';
+import 'package:jawla/view/modules/homepage/screens/favorite.dart';
 import 'package:jawla/view/modules/homepage/screens/homepage.dart';
+import 'package:jawla/view/modules/homepage/screens/settings.dart';
 import 'package:jawla/view/modules/onboarding/screens/onboarding1.dart';
 import 'package:jawla/view/modules/onboarding/screens/onboarding2.dart';
 import 'package:jawla/view/modules/onboarding/screens/onboarding3.dart';
@@ -25,6 +29,10 @@ Map<String, Widget Function(BuildContext)> routes = {
   AppRoutes().bottomNav: (context) => const BottomNav(),
   AppRoutes().homePage: (context) => const HomePage(),
   AppRoutes().discover: (context) => const Discover(),
+  AppRoutes().account: (context) => const Account(),
+  AppRoutes().settings: (context) => const SettingsPage(),
+  AppRoutes().favorite: (context) => const Favorite(),
+  AppRoutes().bookings: (context) => const Bookings(),
   AppRoutes().programDetails: (context) => const ProgramDetails(),
   AppRoutes().paymentMethod: (context) => const PaymentMethod(),
   AppRoutes().completePayment: (context) => const CompletePayment(),

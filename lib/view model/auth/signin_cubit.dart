@@ -46,7 +46,6 @@ class SignInCubit extends Cubit<AppState> {
       }
     }, (r) {
       emit(Success(r));
-      print(r['token']);
       services.sharedPref!.setString("userToken", r['token'].toString());
       Get.offAllNamed(AppRoutes().bottomNav);
     });
