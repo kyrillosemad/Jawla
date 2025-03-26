@@ -10,9 +10,7 @@ class AppRoutes {
   final String discover = "discover";
   final String account = "account";
   final String settings = "settings";
-  final String changeName = "changeName";
-  final String changeEmail = "changeEmail";
-  final String changePhone = "changePhone";
+  final String changeAccountData = "changeAccountData";
   final String changePassword = "changePassword";
   final String deleteAccount = "deleteAccount";
   final String favorite = "favorite";

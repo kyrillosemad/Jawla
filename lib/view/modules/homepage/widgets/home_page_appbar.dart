@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/core/constants/variable.dart';
+import 'package:jawla/view%20model/app_state.dart';
 import 'package:jawla/view%20model/homepage/homepage_cubit.dart';
 import 'package:sizer/sizer.dart';
 
@@ -27,9 +30,21 @@ class HomePageAppbar extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                "Hi, Kyrillos",
-                style: TextStyle(fontSize: 17, color: AppColor.secondColor),
+              BlocBuilder<HomePageCubit, AppState>(
+                builder: (context, state) {
+                  if (state is Loading) {
+                    return const Text(
+                      "Hi, ...",
+                      style:
+                          TextStyle(fontSize: 17, color: AppColor.secondColor),
+                    );
+                  }
+                  return Text(
+                    "Hi, ${Variable().username}",
+                    style: const TextStyle(
+                        fontSize: 17, color: AppColor.secondColor),
+                  );
+                },
               ),
               Row(
                 children: [

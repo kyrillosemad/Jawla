@@ -10,6 +10,8 @@ import 'package:jawla/view/modules/homepage/widgets/home_page_vip_programs.dart'
 import 'package:jawla/view/modules/homepage/widgets/homepage_image.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../core/constants/variable.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -20,6 +22,7 @@ class HomePage extends StatelessWidget {
         child: Builder(
           builder: (context) {
             var controller = context.read<HomePageCubit>();
+            controller.getProfileInfo(Variable().token);
             return SafeArea(
                 child: Scaffold(
               backgroundColor: AppColor.secondColor,

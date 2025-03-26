@@ -14,6 +14,7 @@ class BottomNav extends StatelessWidget {
         child: Builder(
           builder: (context) {
             var controller = context.read<BottomNavCubit>();
+    
             return PersistentTabView(
               context,
               controller: controller.controller,

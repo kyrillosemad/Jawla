@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/core/constants/variable.dart';
 import 'package:jawla/view%20model/homepage/account_cubit.dart';
 import 'package:jawla/view/modules/homepage/widgets/custom_row.dart';
 import 'package:jawla/view/modules/homepage/widgets/divider_widget.dart';
@@ -64,7 +65,7 @@ class Account extends StatelessWidget {
                           height: 2.h,
                         ),
                         Text(
-                          "kyrillos",
+                          Variable().username,
                           style: TextStyle(
                               fontSize: 20.sp,
                               color: AppColor.secondColor,
@@ -74,7 +75,7 @@ class Account extends StatelessWidget {
                           height: 1.h,
                         ),
                         Text(
-                          "kyrillos@gmail.com",
+                          Variable().email,
                           style: TextStyle(
                               fontSize: 12.sp, color: AppColor.secondColor),
                         )
@@ -112,7 +113,7 @@ class Account extends StatelessWidget {
                                 width: 5.w,
                               ),
                               Text(
-                                "ID : 484178",
+                                "ID : ${Variable().id}",
                                 style: TextStyle(fontSize: 15.sp),
                               ),
                             ],

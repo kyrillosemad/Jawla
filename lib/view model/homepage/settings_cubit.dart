@@ -1,20 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:jawla/core/constants/routes_name.dart';
+import 'package:jawla/core/services/services.dart';
 import 'package:jawla/view%20model/app_state.dart';
 
 class SettingsCubit extends Cubit<AppState> {
   SettingsCubit() : super(Initial());
-  goToChangeEmail() {
-    Get.toNamed(AppRoutes().changeEmail);
-  }
+  final services = Get.put(Services());
 
-  goToChangeName() {
-    Get.toNamed(AppRoutes().changeName);
-  }
-
-  goToChangePhone() {
-    Get.toNamed(AppRoutes().changePhone);
+  goToChangeAccountData() {
+    Get.toNamed(AppRoutes().changeAccountData);
   }
 
   goToChangePassword() {

@@ -6,10 +6,8 @@ import 'package:jawla/view/modules/auth/screens/signup.dart';
 import 'package:jawla/view/modules/homepage/screens/account.dart';
 import 'package:jawla/view/modules/homepage/screens/bookings.dart';
 import 'package:jawla/view/modules/homepage/screens/bottom_nav.dart';
-import 'package:jawla/view/modules/homepage/screens/change_email.dart';
-import 'package:jawla/view/modules/homepage/screens/change_name.dart';
+import 'package:jawla/view/modules/homepage/screens/change_account_data.dart';
 import 'package:jawla/view/modules/homepage/screens/change_password.dart';
-import 'package:jawla/view/modules/homepage/screens/change_phone.dart';
 import 'package:jawla/view/modules/homepage/screens/delete_account.dart';
 import 'package:jawla/view/modules/homepage/screens/discover.dart';
 import 'package:jawla/view/modules/homepage/screens/favorite.dart';
@@ -36,9 +34,7 @@ Map<String, Widget Function(BuildContext)> routes = {
   AppRoutes().discover: (context) => const Discover(),
   AppRoutes().account: (context) => const Account(),
   AppRoutes().settings: (context) => const SettingsPage(),
-  AppRoutes().changeEmail: (context) => const ChangeEmail(),
-  AppRoutes().changeName: (context) => const ChangeName(),
-  AppRoutes().changePhone: (context) => const ChangePhone(),
+  AppRoutes().changeAccountData: (context) => const ChangeAccountData(),
   AppRoutes().changePassword: (context) => const ChangePassword(),
   AppRoutes().deleteAccount: (context) => const DeleteAccount(),
   AppRoutes().favorite: (context) => const Favorite(),

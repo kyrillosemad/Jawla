@@ -8,7 +8,7 @@ import 'package:jawla/view%20model/auth/signin_cubit.dart';
 import 'package:jawla/view/modules/auth/screens/auth_custom_text.dart';
 import 'package:jawla/view/modules/auth/widgets/auth_custom_button.dart';
 import 'package:jawla/view/modules/auth/widgets/auth_page_title.dart';
-import 'package:jawla/view/modules/auth/widgets/warning_widget.dart';
+import 'package:jawla/view/widgets/warning_widget.dart';
 import 'package:jawla/view/widgets/custom_text_form_field.dart';
 import 'package:jawla/view/modules/auth/widgets/forget_password_button.dart';
 import 'package:jawla/view/modules/auth/widgets/auth_logo_widget.dart';

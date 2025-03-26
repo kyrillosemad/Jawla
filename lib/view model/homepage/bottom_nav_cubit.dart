@@ -1,6 +1,9 @@
+// ignore_for_file: unrelated_type_equality_checks
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/core/services/services.dart';
 import 'package:jawla/view%20model/app_state.dart';
 import 'package:jawla/view/modules/homepage/screens/account.dart';
 import 'package:jawla/view/modules/homepage/screens/discover.dart';
@@ -9,7 +12,7 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class BottomNavCubit extends Cubit<AppState> {
   BottomNavCubit() : super(Initial());
-
+  final services = Get.put(Services());
   PersistentTabController? controller;
 
   List<Widget> pages = [
@@ -41,4 +44,6 @@ class BottomNavCubit extends Cubit<AppState> {
         inactiveColorPrimary: Colors.black,
         activeColorSecondary: Colors.white)
   ];
+
+ 
 }

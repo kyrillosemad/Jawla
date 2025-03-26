@@ -6,20 +6,23 @@ import 'package:jawla/view%20model/app_state.dart';
 
 class AccountCubit extends Cubit<AppState> {
   AccountCubit() : super(Initial());
-  final services = Get.find<Services>();
-  logOut() {
+
+  final services = Get.put(Services());
+
+  void logOut() {
     services.sharedPref!.clear();
     Get.offAllNamed(AppRoutes().signIn);
   }
 
-  goToFavorite() {
+  void goToFavorite() {
     Get.toNamed(AppRoutes().favorite);
   }
 
-    goToSettings() {
+  void goToSettings() {
     Get.toNamed(AppRoutes().settings);
   }
-    goToBookings() {
+
+  void goToBookings() {
     Get.toNamed(AppRoutes().bookings);
   }
 }

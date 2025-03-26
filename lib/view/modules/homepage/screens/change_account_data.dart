@@ -2,27 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jawla/core/constants/colors.dart';
 import 'package:jawla/core/constants/lottie.dart';
+import 'package:jawla/core/constants/variable.dart';
 import 'package:jawla/core/functions/validator.dart';
 import 'package:jawla/view%20model/app_state.dart';
-import 'package:jawla/view%20model/homepage/change_password_cubit.dart';
+import 'package:jawla/view%20model/homepage/change_account_data_cubit.dart';
 import 'package:jawla/view/modules/auth/widgets/auth_custom_button.dart';
 import 'package:jawla/view/modules/homepage/widgets/custom_text.dart';
 import 'package:jawla/view/widgets/custom_appbar.dart';
 import 'package:jawla/view/widgets/custom_text_form_field.dart';
-import 'package:jawla/view/widgets/warning_widget.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
-class ChangePassword extends StatelessWidget {
-  const ChangePassword({super.key});
+import '../../../widgets/warning_widget.dart';
+
+class ChangeAccountData extends StatelessWidget {
+  const ChangeAccountData({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => ChangePasswordCubit(),
+        create: (context) => ChangeAccountDataCubit(),
         child: Builder(
           builder: (context) {
-            var controller = context.read<ChangePasswordCubit>();
+            var controller = context.read<ChangeAccountDataCubit>();
+            controller.newEmailCont.text = Variable().email;
+            controller.newNameCont.text = Variable().username;
+            controller.newPhoneCont.text = Variable().phone;
             return Scaffold(
               backgroundColor: AppColor.secondColor,
               appBar: const CustomAppbar(),
@@ -32,7 +37,7 @@ class ChangePassword extends StatelessWidget {
                   width: 100.w,
                   child: Column(
                     children: [
-                      const CustomText(name: "Change Password"),
+                      const CustomText(name: "Change Account Info"),
                       SizedBox(
                         height: 8.h,
                       ),
@@ -43,63 +48,63 @@ class ChangePassword extends StatelessWidget {
                             child: Column(
                               children: [
                                 CustomTextFormField(
-                                    controller: controller.oldPasswordCont,
-                                    hintText: "Enter your password",
-                                    icon: Icons.password,
-                                    labelText: "old Password",
+                                    controller: controller.newNameCont,
+                                    hintText: "Enter New Username",
+                                    icon: Icons.person,
+                                    labelText: "username",
                                     obsecure: false,
                                     textInputType: TextInputType.name,
                                     validator: (value) {
                                       return validator(
-                                          value, 50, 4, "password");
+                                          value, 50, 4, "username");
                                     },
                                     function: () {}),
                                 SizedBox(
                                   height: 3.h,
                                 ),
                                 CustomTextFormField(
-                                    controller: controller.passwordCont,
-                                    hintText: "Enter New Password",
-                                    icon: Icons.password,
-                                    labelText: "New Password",
+                                    controller: controller.newEmailCont,
+                                    hintText: "Enter New Email",
+                                    icon: Icons.email,
+                                    labelText: "Email",
                                     obsecure: false,
                                     textInputType: TextInputType.name,
                                     validator: (value) {
-                                      return validator(
-                                          value, 50, 4, "password");
+                                      return validator(value, 50, 10, "email");
                                     },
                                     function: () {}),
                                 SizedBox(
                                   height: 3.h,
                                 ),
                                 CustomTextFormField(
-                                    controller: controller.confirmPasswordCont,
-                                    hintText: "Enter Password Again",
-                                    icon: Icons.password,
-                                    labelText: "Confirm Password",
+                                    controller: controller.newPhoneCont,
+                                    hintText: "Enter New Phone",
+                                    icon: Icons.phone,
+                                    labelText: "Phone",
                                     obsecure: false,
-                                    textInputType: TextInputType.name,
+                                    textInputType: TextInputType.number,
                                     validator: (value) {
                                       return validator(
                                           value, 50, 4, "password");
                                     },
                                     function: () {}),
-                                SizedBox(
-                                  height: 37.h,
-                                ),
-                                BlocConsumer<ChangePasswordCubit, AppState>(
+                                SizedBox(height: 37.h),
+                                BlocConsumer<ChangeAccountDataCubit, AppState>(
                                   listener: (context, state) {
                                     if (state is InternetError) {
+                                      
                                       warningWidget(
                                           "Connection Error",
                                           Icons.wifi_off_rounded,
                                           "Please check your internet connection and try again.");
                                     } else if (state is ServerError) {
+                                     
                                       warningWidget(
                                           "Server Error",
                                           Icons.cloud_off,
                                           "Please check your server connection and try again.");
                                     } else if (state is ApiFailure) {
+                                     
                                       warningWidget("Wrong", Icons.error,
                                           "${state.error}");
                                     }
@@ -116,7 +121,8 @@ class ChangePassword extends StatelessWidget {
                                         function: () {
                                           controller.formKey.currentState!
                                                   .validate()
-                                              ? controller.changePasswordFun()
+                                              ? controller
+                                                  .changeAccountDataFun()
                                               : () {};
                                         },
                                         name: "Save");

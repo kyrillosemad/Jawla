@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/core/constants/variable.dart';
 import 'package:jawla/view%20model/homepage/settings_cubit.dart';
 import 'package:jawla/view/modules/homepage/widgets/custom_row2.dart';
 import 'package:jawla/view/modules/homepage/widgets/divider_widget.dart';
@@ -51,42 +52,12 @@ class SettingsPage extends StatelessWidget {
                           ),
                           CustomRow2(
                               onTap: () {
-                                controller.goToChangeName();
+                                controller.goToChangeAccountData();
                               },
                               leadingIcon: Icons.person,
                               trailingIcon: Icons.arrow_forward_ios_outlined,
-                              title: "Change Name",
-                              content: "Kyrillosemad"),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          const DividerWidget(),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          CustomRow2(
-                              onTap: () {
-                                controller.goToChangeEmail();
-                              },
-                              leadingIcon: Icons.email,
-                              trailingIcon: Icons.arrow_forward_ios_outlined,
-                              title: "Change Email",
-                              content: "koko23@gmail.com"),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          const DividerWidget(),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          CustomRow2(
-                              onTap: () {
-                                controller.goToChangePhone();
-                              },
-                              leadingIcon: Icons.person,
-                              trailingIcon: Icons.arrow_forward_ios_outlined,
-                              title: "Change Phone",
-                              content: "01115454151"),
+                              title: "Account Info",
+                              content: Variable().username),
                           SizedBox(
                             height: 0.5.h,
                           ),

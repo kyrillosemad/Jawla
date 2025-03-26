@@ -4,17 +4,15 @@ import 'package:http/http.dart' as http;
 import 'package:jawla/core/classes/status.dart';
 import 'package:jawla/core/functions/check_internet.dart';
 
-class Request {
-  Future<Either<Status, Map>> request(String link, Map data) async {
+class DeleteRequest {
+  Future<Either<Status, Map>> deleteRequest(
+      String link, Map<String, String>? headers,Map body) async {
     try {
       if (await checkInternet()) {
-        var response = await http.post(
+        var response = await http.delete(
           Uri.parse(link),
-          body: jsonEncode(data),
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-          },
+          headers: headers,
+          body: jsonEncode(body),
         );
         if (response.statusCode == 200 || response.statusCode == 201) {
           var data = jsonDecode(response.body);
