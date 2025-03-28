@@ -15,6 +15,9 @@ class GetRequest {
         );
         if (response.statusCode == 200 || response.statusCode == 201) {
           var data = jsonDecode(response.body);
+          if (data is List) {
+            return right({"data": data});
+          }
           return right(data);
         } else {
           var errors = jsonDecode(response.body);
@@ -24,6 +27,7 @@ class GetRequest {
         return left(Status.internetFailure);
       }
     } catch (e) {
+      print(e);
       return left(Status.serverFailure);
     }
   }

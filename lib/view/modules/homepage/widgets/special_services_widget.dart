@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/core/constants/images.dart';
 import 'package:sizer/sizer.dart';
 
 class SpecialServicesWidget extends StatelessWidget {
-
   final String name;
   final void Function()? function;
   final IconData icon;
@@ -22,6 +22,12 @@ class SpecialServicesWidget extends StatelessWidget {
         width: 32.w,
         height: 12.h,
         decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+                  AppImages().back4,
+                ),
+                fit: BoxFit.fill,
+                opacity: 0.3),
             color: AppColor.primaryColor,
             borderRadius: BorderRadius.circular(15)),
         child: Column(

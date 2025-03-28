@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/colors.dart';
-import 'package:jawla/view%20model/homepage/homepage_cubit.dart';
+import 'package:jawla/view%20model/homepage/trip_cubit.dart';
 import 'package:jawla/view/modules/homepage/widgets/home_page_program_widget.dart';
 import 'package:sizer/sizer.dart';
 
 class HomePageVipPrograms extends StatelessWidget {
-  final HomePageCubit controller;
+  final TripCubit controller;
   const HomePageVipPrograms({super.key, required this.controller});
 
   @override

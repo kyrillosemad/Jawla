@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/core/constants/images.dart';
 import 'package:jawla/core/constants/variable.dart';
 import 'package:jawla/view%20model/homepage/account_cubit.dart';
 import 'package:jawla/view/modules/homepage/widgets/custom_row.dart';
@@ -42,6 +43,10 @@ class Account extends StatelessWidget {
                       width: 95.w,
                       height: 22.h,
                       decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(AppImages().back2),
+                              fit: BoxFit.cover,
+                              opacity: 0.1),
                           gradient: const LinearGradient(colors: [
                             AppColor.bottomNavColor,
                             AppColor.bottomNavColor2
@@ -87,9 +92,14 @@ class Account extends StatelessWidget {
                     Container(
                       width: 95.w,
                       height: 45.h,
-                      decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          gradient: LinearGradient(colors: [
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20)),
+                          image: DecorationImage(
+                              image: AssetImage(AppImages().back4),
+                              opacity: 0.15,
+                              fit: BoxFit.fill),
+                          gradient: const LinearGradient(colors: [
                             AppColor.bottomNavColor,
                             AppColor.bottomNavColor2
                           ])),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/core/constants/images.dart';
 import 'package:jawla/view%20model/homepage/homepage_cubit.dart';
 import 'package:jawla/view/modules/homepage/widgets/special_services_widget.dart';
 import 'package:sizer/sizer.dart';
@@ -14,9 +15,13 @@ class HomePageCustomServices extends StatelessWidget {
       width: 100.w,
       margin: const EdgeInsets.only(left: 10),
       height: 16.h,
-      decoration: const BoxDecoration(
-          color: AppColor.secondColor3,
-          borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(AppImages().back2),
+              fit: BoxFit.cover,
+              opacity: 0.0),
+          color: AppColor.secondColor3.withOpacity(0.4),
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(15),
             bottomLeft: Radius.circular(15),
             topRight: Radius.circular(30),

@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:jawla/core/constants/images.dart';
+import 'package:jawla/model/trip/trip_details_model.dart';
+import 'package:jawla/view%20model/travel_programs/program_details_cubit.dart';
 import 'package:sizer/sizer.dart';
 
 class PlacesImages extends StatelessWidget {
-  const PlacesImages({super.key});
+  final TripDetailsModel tripDetailsModel;
+  final ProgramDetailsCubit controller;
+  const PlacesImages(
+      {super.key, required this.tripDetailsModel, required this.controller});
 
   @override
   Widget build(BuildContext context) {
+    List<String>? images = tripDetailsModel.images;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -23,10 +28,12 @@ class PlacesImages extends StatelessWidget {
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
-            itemCount: 10,
+            itemCount: images!.length,
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
-                onTap: () {},
+                onTap: () {
+                  controller.setMainImage(tripDetailsModel.images![index]);
+                },
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 3),
                   width: 14.w,
@@ -34,7 +41,7 @@ class PlacesImages extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(Radius.circular(5)),
                       image: DecorationImage(
-                          image: AssetImage(AppImages().bj1),
+                          image: NetworkImage(images[index]),
                           fit: BoxFit.cover)),
                 ),
               );

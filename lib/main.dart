@@ -8,15 +8,15 @@ import 'package:jawla/view/modules/homepage/screens/bottom_nav.dart';
 import 'package:jawla/view/modules/onboarding/screens/onboarding1.dart';
 import 'package:sizer/sizer.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final services = Get.put(Services());
- await services.init();
+  await services.init();
   runApp(const Jawla());
 }
 
 class Jawla extends StatelessWidget {
-  const Jawla({super.key});  
+  const Jawla({super.key});
 
   @override
   Widget build(BuildContext context) {

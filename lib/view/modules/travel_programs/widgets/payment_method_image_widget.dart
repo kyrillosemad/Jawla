@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/images.dart';
-import 'package:jawla/view/modules/travel_programs/widgets/program_details_program_widget.dart';
 import 'package:sizer/sizer.dart';
 
 class PaymentMethodImageWidget extends StatelessWidget {
@@ -17,13 +16,7 @@ class PaymentMethodImageWidget extends StatelessWidget {
             image: DecorationImage(
                 image: AssetImage(AppImages().bj1), fit: BoxFit.cover)),
         child: Stack(
-          children: [
-            Positioned(
-              bottom: 2.h,
-              right: 7.5.w,
-              child: const ProgramDetailsProgramWidget(),
-            )
-          ],
+          children: [Positioned(bottom: 2.h, right: 7.5.w, child: Container())],
         ),
       ),
     );

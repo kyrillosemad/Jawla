@@ -14,4 +14,8 @@ class AppImages {
   final String yellowPyramids = "${rootImage}Vector (2).png";
   final String paypalLogo = "${rootImage}paypal.png";
   final String successLogo = "${rootImage}success.png";
+  final String back1 = "$rootImageنقش1.jpg";
+  final String back2 = "$rootImageنقش 2.jpg";
+  final String back3 = "$rootImageنقش3.jpg";
+  final String back4 = "$rootImageنقش4.jpg";
 }

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:jawla/model/trip/trip_details_model.dart';
+
 import 'package:sizer/sizer.dart';
 
 class AboutThesePlaces extends StatelessWidget {
-  const AboutThesePlaces({super.key});
+  final TripDetailsModel tripDetailsModel;
+  const AboutThesePlaces({super.key, required this.tripDetailsModel});
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +17,11 @@ class AboutThesePlaces extends StatelessWidget {
           style: TextStyle(fontSize: 18, color: Colors.white),
         ),
         SizedBox(
-          height: 0.5.h,
+          height: 0.7.h,
         ),
-        const Text(
-          "Enjoy your trip with us in Luxor. We will see the Luxor Temple and the Temple of Hatshepsut and learn about the history of Egyptian civilization and the value of these temples to Egyptian civilization.",
-          style: TextStyle(color: Colors.white, fontSize: 12),
+        Text(
+          "${tripDetailsModel.description}",
+          style: const TextStyle(color: Colors.white, fontSize: 15),
         ),
       ],
     );

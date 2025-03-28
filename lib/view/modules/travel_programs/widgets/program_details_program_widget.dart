@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/model/trip/trip_details_model.dart';
 import 'package:sizer/sizer.dart';
 
 class ProgramDetailsProgramWidget extends StatelessWidget {
-  const ProgramDetailsProgramWidget({super.key});
+  final TripDetailsModel tripDetailsModel;
+  const ProgramDetailsProgramWidget(
+      {super.key, required this.tripDetailsModel});
 
   @override
   Widget build(BuildContext context) {
@@ -21,24 +24,25 @@ class ProgramDetailsProgramWidget extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(15))),
         child: Column(
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Luxor Temples",
-                  style: TextStyle(fontSize: 15, color: AppColor.secondColor),
+                  "${tripDetailsModel.title}",
+                  style: const TextStyle(
+                      fontSize: 15, color: AppColor.secondColor),
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.location_on,
                       size: 20,
                       color: AppColor.secondColor,
                     ),
                     Text(
-                      "Luxor",
-                      style:
-                          TextStyle(fontSize: 13, color: AppColor.secondColor),
+                      "${tripDetailsModel.location}",
+                      style: const TextStyle(
+                          fontSize: 13, color: AppColor.secondColor),
                     ),
                   ],
                 ),
@@ -48,19 +52,20 @@ class ProgramDetailsProgramWidget extends StatelessWidget {
               color: Colors.white,
               thickness: 1,
             ),
-            const Row(
+            Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.date_range,
                   size: 17,
                   color: AppColor.secondColor,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Text(
-                  "3 Days",
-                  style: TextStyle(fontSize: 12, color: AppColor.secondColor),
+                  "${tripDetailsModel.duration} Days",
+                  style: const TextStyle(
+                      fontSize: 12, color: AppColor.secondColor),
                 )
               ],
             ),
@@ -80,10 +85,10 @@ class ProgramDetailsProgramWidget extends StatelessWidget {
                     SizedBox(
                       width: 1.w,
                     ),
-                    const Text(
-                      "250 L.E",
-                      style:
-                          TextStyle(fontSize: 13, color: AppColor.secondColor),
+                    Text(
+                      "${tripDetailsModel.price} L.E",
+                      style: const TextStyle(
+                          fontSize: 13, color: AppColor.secondColor),
                     )
                   ],
                 ),

@@ -33,7 +33,7 @@ class Bookings extends StatelessWidget {
                   ],
                 ),
               ),
-            );
+            );  
           },
         ));
   }

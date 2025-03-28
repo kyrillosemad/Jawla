@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/core/constants/images.dart';
 import 'package:jawla/core/constants/variable.dart';
 import 'package:jawla/view%20model/app_state.dart';
 import 'package:jawla/view%20model/homepage/homepage_cubit.dart';
@@ -16,9 +17,13 @@ class HomePageAppbar extends StatelessWidget {
       padding: const EdgeInsets.only(left: 10, right: 10),
       width: 100.w,
       height: 14.h,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           color: AppColor.primaryColor,
-          borderRadius: BorderRadius.only(
+          image: DecorationImage(
+              image: AssetImage(AppImages().back4),
+              fit: BoxFit.cover,
+              opacity: 0.3),
+          borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(20),
               bottomRight: Radius.circular(20))),
       child: Column(

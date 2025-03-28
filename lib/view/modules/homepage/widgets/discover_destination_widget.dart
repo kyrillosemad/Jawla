@@ -1,23 +1,39 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/colors.dart';
 import 'package:jawla/core/constants/images.dart';
-import 'package:jawla/view%20model/homepage/discover_cubit.dart';
 import 'package:sizer/sizer.dart';
 
 class DiscoverDestinationWidget extends StatelessWidget {
-  final DiscoverCubit controller;
-  const DiscoverDestinationWidget({super.key,required this.controller});
+  final controller;
+  const DiscoverDestinationWidget({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.all(3.w),
       child: Container(
         decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AppImages().back4),
+            fit: BoxFit.fill,
+            opacity: 0.15,
+          ),
           color: AppColor.secondColor,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(15), // زوايا أكثر انحناءً
+          border: Border.all(
+              color: Colors.white.withOpacity(0.8), width: 2), // إطار واضح
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(1),
+              spreadRadius: 4,
+              blurRadius: 7,
+              offset: const Offset(2, 3),
+            ),
+          ],
         ),
-        padding: EdgeInsets.all(3.w),
+        padding: EdgeInsets.all(4.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -68,7 +84,6 @@ class DiscoverDestinationWidget extends StatelessWidget {
               ],
             ),
             SizedBox(height: 2.h),
-
             Text(
               "Info:",
               style: TextStyle(
