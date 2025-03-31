@@ -9,6 +9,7 @@ import 'package:jawla/view%20model/app_state.dart';
 class TripCubit extends Cubit<AppState> {
   TripCubit() : super(Initial());
   List data = [];
+  List vipData = [];
 
   getAllTrips() async {
     emit(Loading());
@@ -22,8 +23,8 @@ class TripCubit extends Cubit<AppState> {
         emit(ApiFailure(l.errorData['errors']));
       }
     }, (r) {
-      data = [];
-      data.addAll(r['data']);
+      data = r['data'];
+      vipData = data.where((trip) => trip['types'] == 'VIP').toList();
       emit(Success(data));
     });
   }

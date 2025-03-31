@@ -1,15 +1,26 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/route_manager.dart';
 import 'package:jawla/core/classes/status.dart';
 import 'package:jawla/core/constants/routes_name.dart';
 import 'package:jawla/data/home/trip/get_trip_details.dart';
 import 'package:jawla/view%20model/app_state.dart';
+import 'package:jawla/view/widgets/warning_widget.dart';
 
 class ProgramDetailsCubit extends Cubit<AppState> {
   ProgramDetailsCubit() : super(Initial());
   goToPaymentMethods() {
-    Get.toNamed(AppRoutes().paymentMethod);
+    if (numOfPersons > 0) {
+      Get.toNamed(AppRoutes().paymentMethod, arguments: {
+        "mainImage": mainImage,
+        "price": data[0]['price'],
+        "persons": numOfPersons,
+        "totalPrice": (data[0]['price']) * numOfPersons,
+      });
+    } else {
+      warningWidget("Failed", Icons.warning, "Please select the Amount");
+    }
   }
 
   int numOfPersons = 0;

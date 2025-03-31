@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:jawla/core/constants/routes_name.dart';
 import 'package:jawla/core/services/services.dart';
 import 'package:jawla/view%20model/app_state.dart';
+import 'package:jawla/view%20model/homepage/favorite_cubit.dart';
 
 class AccountCubit extends Cubit<AppState> {
   AccountCubit() : super(Initial());
@@ -15,7 +16,8 @@ class AccountCubit extends Cubit<AppState> {
   }
 
   void goToFavorite() {
-    Get.toNamed(AppRoutes().favorite);
+    Get.toNamed(AppRoutes().favorite)
+        ?.then((value) => Get.find<FavoriteCubit>().emit(Initial()));
   }
 
   void goToSettings() {

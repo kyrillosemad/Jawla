@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 class AppImages {
   static const String rootImage = "assets/images/";
   final String bj1 = "${rootImage}bj1.jpeg";
@@ -18,4 +20,8 @@ class AppImages {
   final String back2 = "$rootImageنقش 2.jpg";
   final String back3 = "$rootImageنقش3.jpg";
   final String back4 = "$rootImageنقش4.jpg";
+  final String masterCard = "${rootImage}masterCard.png";
+  final String E_Wallet = "${rootImage}mobWallet.png";
+  final String refCode = "${rootImage}ref_code.png";
+    final String paypal = "${rootImage}paypal.png";
 }

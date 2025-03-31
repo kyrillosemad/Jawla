@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:jawla/core/constants/images.dart';
+import 'package:jawla/view%20model/travel_programs/payment_method_cubit.dart';
 import 'package:sizer/sizer.dart';
 
 class PaymentMethodImageWidget extends StatelessWidget {
-  const PaymentMethodImageWidget({super.key});
+  final PaymentMethodCubit controller;
+  const PaymentMethodImageWidget({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,8 @@ class PaymentMethodImageWidget extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(20)),
             image: DecorationImage(
-                image: AssetImage(AppImages().bj1), fit: BoxFit.cover)),
+                image: NetworkImage("${controller.mainImage}"),
+                fit: BoxFit.fill)),
         child: Stack(
           children: [Positioned(bottom: 2.h, right: 7.5.w, child: Container())],
         ),

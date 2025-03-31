@@ -7,11 +7,13 @@ class PaymentMethodWidget extends StatelessWidget {
   final PaymentMethodCubit controller;
   final String name;
   final DecorationImage? image;
+  final void Function()? function;
   const PaymentMethodWidget(
       {super.key,
       required this.controller,
       required this.name,
-      required this.image});
+      required this.image,
+      required this.function});
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +47,7 @@ class PaymentMethodWidget extends StatelessWidget {
             ],
           ),
           IconButton(
-              onPressed: () {
-                controller.goToSuccessPage();
-              },
+              onPressed: function,
               icon: const Icon(
                 Icons.arrow_forward_ios,
                 size: 25,

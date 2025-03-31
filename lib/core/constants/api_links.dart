@@ -17,4 +17,12 @@ class AppLink {
   static const String getAllTripsApi =
       'https://aldeeb.runasp.net/api/Trip/GetAllTrips';
   static const String getTripDetailsApi = 'https://aldeeb.runasp.net/api/Trip/';
+  /////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////
+  static const String addFavoriteApi =
+      'https://aldeeb.runasp.net/api/Favorite/add/';
+  static const String removeFavoriteApi =
+      'https://aldeeb.runasp.net/api/Favorite/remove/';
+  static const String getFavoriteApi =
+      'https://aldeeb.runasp.net/api/Favorite/list';
 }

@@ -19,7 +19,7 @@ class HomePageImage extends StatelessWidget {
                 AppImages().bj3,
               ),
               fit: BoxFit.cover,
-              opacity: 0.4)),
+              opacity: 0.7)),
     );
   }
 }

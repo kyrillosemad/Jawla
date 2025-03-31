@@ -7,17 +7,17 @@ class TripModel {
   int? price;
   int? duration;
   String? mainImage;
+  String? type;
 
-  TripModel({
-    this.id,
-    this.title,
-    this.location,
-    this.price,
-    this.duration,
-    this.mainImage,
-  });
+  TripModel(
+      {this.id,
+      this.title,
+      this.location,
+      this.price,
+      this.duration,
+      this.mainImage,
+      this.type});
 
-  // دالة التحويل من JSON
   TripModel.fromJson(Map<String, dynamic> json) {
     id = json['id'] as int?;
     title = json['title'] as String?;
@@ -25,6 +25,7 @@ class TripModel {
     price = json['price'] as int?;
     duration = json['duration'] as int?;
     mainImage = json['main_Image'] as String?;
+    type = json['types'] as String?;
   }
 
   Map<String, dynamic> toJson() {
@@ -34,7 +35,8 @@ class TripModel {
       'location': location,
       'price': price,
       'duration': duration,
-      'main_Image': mainImage, 
+      'main_Image': mainImage,
+      'types': type,
     };
   }
 }

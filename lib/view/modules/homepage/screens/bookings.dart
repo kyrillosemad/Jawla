@@ -14,7 +14,6 @@ class Bookings extends StatelessWidget {
         create: (context) => BookingsCubit(),
         child: Builder(
           builder: (context) {
-            var controller = context.read<BookingsCubit>();
             return Scaffold(
               appBar: const CustomAppbar(),
               backgroundColor: AppColor.secondColor,
@@ -33,7 +32,7 @@ class Bookings extends StatelessWidget {
                   ],
                 ),
               ),
-            );  
+            );
           },
         ));
   }

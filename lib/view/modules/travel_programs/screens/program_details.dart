@@ -4,6 +4,7 @@ import 'package:jawla/core/constants/colors.dart';
 import 'package:jawla/core/constants/lottie.dart';
 import 'package:jawla/model/trip/trip_details_model.dart';
 import 'package:jawla/view%20model/app_state.dart';
+import 'package:jawla/view%20model/homepage/favorite_cubit.dart';
 import 'package:jawla/view%20model/travel_programs/program_details_cubit.dart';
 import 'package:jawla/view/modules/travel_programs/widgets/about_these_places.dart';
 import 'package:jawla/view/modules/travel_programs/widgets/custom_container.dart';
@@ -24,8 +25,8 @@ class ProgramDetails extends StatelessWidget {
         child: Builder(
           builder: (context) {
             var controller = context.read<ProgramDetailsCubit>();
+            var favoriteController = context.read<FavoriteCubit>();
             controller.getTripDetails(controller.id);
-
             return SafeArea(
               child: Scaffold(
                   backgroundColor: AppColor.secondColor,
@@ -74,6 +75,7 @@ class ProgramDetails extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         ProgramDetailsImageWidget(
+                                          favoriteController: favoriteController,
                                             tripDetailsModel: tripDetailsModel,
                                             controller: controller),
                                         SizedBox(

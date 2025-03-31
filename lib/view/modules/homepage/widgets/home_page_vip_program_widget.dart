@@ -12,10 +12,10 @@ import 'package:jawla/view/widgets/warning_widget.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
-class HomePageProgramWidget extends StatelessWidget {
+class HomePageVipProgramWidget extends StatelessWidget {
   final TripCubit tripController;
   final FavoriteCubit favoriteController;
-  const HomePageProgramWidget(
+  const HomePageVipProgramWidget(
       {super.key,
       required this.tripController,
       required this.favoriteController});
@@ -38,16 +38,17 @@ class HomePageProgramWidget extends StatelessWidget {
         if (state is Loading) {
           return Center(
               child: LottieBuilder.asset(AppLottie().loading2, height: 20.h));
-        } else if (tripController.data.isEmpty) {
+        } else if (tripController.vipData.isEmpty) {
           return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Lottie.asset(AppLottie().loading2, height: 15.h),
-                const SizedBox(height: 5),
+                SizedBox(
+                  height: 5.h,
+                ),
                 const Text(
-                  "No Trips Available",
-                  style: TextStyle(fontSize: 16, color: AppColor.secondColor),
+                  "No trips available at the moment",
+                  style: TextStyle(fontSize: 16, color: AppColor.primaryColor),
                 ),
               ],
             ),
@@ -59,10 +60,10 @@ class HomePageProgramWidget extends StatelessWidget {
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: tripController.data.length,
+              itemCount: tripController.vipData.length,
               itemBuilder: (BuildContext context, int index) {
                 TripModel tripModel =
-                    TripModel.fromJson(tripController.data[index]);
+                    TripModel.fromJson(tripController.vipData[index]);
                 bool isFavorite = context
                     .watch<FavoriteCubit>()
                     .isTripFavorite(tripModel.id.toString());
@@ -87,35 +88,35 @@ class HomePageProgramWidget extends StatelessWidget {
                           top: 1.h,
                           right: 4.w,
                           child: BlocBuilder<FavoriteCubit, AppState>(
-                              builder: (context, state) {
-                            return CircleAvatar(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 203, 208, 220),
-                              child: IconButton(
+                            builder: (context, state) {
+                              return CircleAvatar(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 203, 208, 220),
+                                child: IconButton(
+                                  icon: Icon(
+                                    isFavorite
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color: isFavorite
+                                        ? Colors.red
+                                        : AppColor.secondColor,
+                                  ),
                                   onPressed: () {
                                     favoriteController.toggleFavorite(
                                         tripModel.id.toString());
                                   },
-                                  icon: isFavorite
-                                      ? const Icon(
-                                          Icons.favorite,
-                                          color: Colors.red,
-                                        )
-                                      : const Icon(
-                                          Icons.favorite_border,
-                                          color: AppColor.secondColor,
-                                        )),
-                            );
-                          })),
+                                ),
+                              );
+                            },
+                          )),
                       Positioned(
-                          top: 1.5.h,
-                          left: 4.w,
-                          child: tripModel.type == "VIP"
-                              ? const Icon(
-                                  Icons.star,
-                                  color: Colors.yellow,
-                                )
-                              : Container()),
+                        top: 1.5.h,
+                        left: 4.w,
+                        child: const Icon(
+                          Icons.star,
+                          color: Colors.yellow,
+                        ),
+                      ),
                       Positioned(
                         bottom: 1.h,
                         left: 7.w,
@@ -228,7 +229,7 @@ class HomePageProgramWidget extends StatelessWidget {
                                     ),
                                   )
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),

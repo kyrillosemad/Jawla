@@ -10,6 +10,7 @@ import 'package:jawla/view/modules/homepage/widgets/home_page_vip_programs.dart'
 import 'package:jawla/view/modules/homepage/widgets/homepage_image.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../core/constants/variable.dart';
+import '../../../../view model/homepage/favorite_cubit.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -29,8 +30,10 @@ class HomePage extends StatelessWidget {
           builder: (context) {
             var homePageController = context.read<HomePageCubit>();
             var tripController = context.read<TripCubit>();
+            var favoriteController = context.read<FavoriteCubit>();
             homePageController.getProfileInfo(Variable().token);
             tripController.getAllTrips();
+            favoriteController.getFavoriteFun();
             return SafeArea(
                 child: Scaffold(
               backgroundColor: AppColor.secondColor,
@@ -54,17 +57,14 @@ class HomePage extends StatelessWidget {
                       SizedBox(
                         height: 1.h,
                       ),
+                      HomePageAllPrograms(
+                          tripController: tripController,
+                          favoriteController: favoriteController),
                       HomePageVipPrograms(
-                        controller: tripController,
-                      ),
+                          tripController: tripController,
+                          favoriteController: favoriteController),
                       SizedBox(
                         height: 1.h,
-                      ),
-                      HomePageAllPrograms(
-                        controller: tripController,
-                      ),
-                      SizedBox(
-                        height: 3.h,
                       ),
                     ],
                   ),

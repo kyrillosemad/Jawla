@@ -8,6 +8,7 @@ class TripDetailsModel {
   int? duration;
   String? mainImage; // تعديل نوع المتغير
   List<String>? images;
+  String? type;
 
   TripDetailsModel({
     this.id,
@@ -19,6 +20,7 @@ class TripDetailsModel {
     this.duration,
     this.mainImage,
     this.images,
+    this.type,
   });
 
   TripDetailsModel.fromJson(Map<String, dynamic> json) {
@@ -33,6 +35,7 @@ class TripDetailsModel {
     if (json['images'] != null) {
       images = List<String>.from(json['images']); // تصحيح تحويل القائمة
     }
+    type = json['types'];
   }
 
   Map<String, dynamic> toJson() {
@@ -48,6 +51,7 @@ class TripDetailsModel {
     if (images != null) {
       data['images'] = images; // تصحيح تحويل القائمة
     }
+    data['types'] = type;
     return data;
   }
 }
