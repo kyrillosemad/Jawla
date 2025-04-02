@@ -35,19 +35,24 @@ class HomePageProgramWidget extends StatelessWidget {
         }
       },
       builder: (context, state) {
+        print(state);
         if (state is Loading) {
           return Center(
               child: LottieBuilder.asset(AppLottie().loading2, height: 20.h));
-        } else if (tripController.data.isEmpty) {
+        } else if (tripController.vipData.isEmpty ||
+            state is InternetError ||
+            state is ServerError ||
+            state is ApiFailure) {
           return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Lottie.asset(AppLottie().loading2, height: 15.h),
-                const SizedBox(height: 5),
+                SizedBox(
+                  height: 5.h,
+                ),
                 const Text(
-                  "No Trips Available",
-                  style: TextStyle(fontSize: 16, color: AppColor.secondColor),
+                  "No trips available at the moment",
+                  style: TextStyle(fontSize: 16, color: AppColor.primaryColor),
                 ),
               ],
             ),

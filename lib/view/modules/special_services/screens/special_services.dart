@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/view%20model/special_services/car_service_cubit.dart';
+import 'package:jawla/view%20model/special_services/guide_service_cubit.dart';
+import 'package:jawla/view%20model/special_services/package_service_cubit.dart';
 import 'package:jawla/view%20model/special_services/special_services_cubit.dart';
 import 'package:jawla/view/modules/special_services/screens/car_page.dart';
 import 'package:jawla/view/modules/special_services/screens/custom_program_page.dart';
@@ -13,11 +16,27 @@ class SpecialServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SpecialServicesCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => SpecialServicesCubit(),
+        ),
+        BlocProvider(
+          create: (context) => CarServiceCubit(),
+        ),
+        BlocProvider(
+          create: (context) => GuideServiceCubit(),
+        ),
+        BlocProvider(
+          create: (context) => PackageServiceCubit(),
+        ),
+      ],
       child: Builder(
         builder: (context) {
           var controller = context.read<SpecialServicesCubit>();
+          var carController = context.read<CarServiceCubit>();
+          var guideController = context.read<GuideServiceCubit>();
+          var packageController = context.read<PackageServiceCubit>();
           return SafeArea(
             child: Scaffold(
               backgroundColor: AppColor.secondColor,
@@ -106,12 +125,12 @@ class SpecialServices extends StatelessWidget {
                               child: TabBarView(
                                 physics: const NeverScrollableScrollPhysics(),
                                 children: [
-                                  CarPage(controller: controller),
+                                  CarPage(controller: carController),
                                   TourGuidePage(
-                                    controller: controller,
+                                    controller: guideController,
                                   ),
                                   CustomProgramPage(
-                                    controller: controller,
+                                    controller: packageController,
                                   ),
                                 ],
                               ),

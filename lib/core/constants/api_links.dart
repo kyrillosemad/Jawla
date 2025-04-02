@@ -25,4 +25,10 @@ class AppLink {
       'https://aldeeb.runasp.net/api/Favorite/remove/';
   static const String getFavoriteApi =
       'https://aldeeb.runasp.net/api/Favorite/list';
+  static const String addCarServiceApi =
+      'https://aldeeb.runasp.net/api/SpecialService/car';
+  static const String addGuideServiceApi =
+      'https://aldeeb.runasp.net/api/SpecialService/tourguide';
+  static const String addPackageServiceApi =
+      'https://aldeeb.runasp.net/api/SpecialService/package';
 }

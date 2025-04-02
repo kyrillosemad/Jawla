@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:jawla/core/constants/routes_name.dart';
 import 'package:jawla/core/constants/variable.dart';
 import 'package:jawla/core/services/services.dart';
-import 'package:jawla/data/profile/change_password_api.dart';
+import 'package:jawla/data/profile/change_password_request.dart';
 import 'package:jawla/view%20model/app_state.dart';
 import 'package:jawla/view/widgets/success_widget.dart';
 import 'package:jawla/view/widgets/warning_widget.dart';

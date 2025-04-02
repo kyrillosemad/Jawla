@@ -38,7 +38,10 @@ class HomePageVipProgramWidget extends StatelessWidget {
         if (state is Loading) {
           return Center(
               child: LottieBuilder.asset(AppLottie().loading2, height: 20.h));
-        } else if (tripController.vipData.isEmpty) {
+        } else if (tripController.vipData.isEmpty ||
+            state is InternetError ||
+            state is ServerError ||
+            state is ApiFailure) {
           return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
