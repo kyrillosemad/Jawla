@@ -8,13 +8,16 @@ import 'package:sizer/sizer.dart';
 class HomePageAllPrograms extends StatelessWidget {
   final TripCubit tripController;
   final FavoriteCubit favoriteController;
-  const HomePageAllPrograms({super.key, required this.tripController,required this.favoriteController});
+  const HomePageAllPrograms(
+      {super.key,
+      required this.tripController,
+      required this.favoriteController});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 100.w,
-      height: 27.h,
+      height: 29.h,
       decoration: const BoxDecoration(
           color: AppColor.secondColor,
           borderRadius: BorderRadius.only(topRight: Radius.elliptical(80, 35))),

@@ -59,13 +59,6 @@ class HomePageAppbar extends StatelessWidget {
                         Icons.notifications,
                         size: 27,
                         color: AppColor.secondColor,
-                      )),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.menu,
-                        size: 27,
-                        color: AppColor.secondColor,
                       ))
                 ],
               )

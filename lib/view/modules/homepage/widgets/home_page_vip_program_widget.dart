@@ -59,7 +59,7 @@ class HomePageVipProgramWidget extends StatelessWidget {
         } else {
           return SizedBox(
             width: 100.w,
-            height: 20.h,
+            height: 21.h,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
@@ -73,7 +73,7 @@ class HomePageVipProgramWidget extends StatelessWidget {
                 return Container(
                   margin: const EdgeInsets.only(left: 8),
                   width: 73.w,
-                  height: 13.h,
+                  height: 18.h,
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: tripModel.mainImage == null ||
@@ -126,7 +126,6 @@ class HomePageVipProgramWidget extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.all(7),
                           width: 60.w,
-                          height: 12.h,
                           decoration: BoxDecoration(
                               color: const Color.fromARGB(255, 218, 223, 235)
                                   .withOpacity(0.8)

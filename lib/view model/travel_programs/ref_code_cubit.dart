@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:jawla/core/constants/routes_name.dart';
 import 'package:jawla/view%20model/app_state.dart';
+import 'package:jawla/view%20model/travel_programs/payment_method_cubit.dart';
 import '../../core/functions/paymob_payment/pay_with_refcode.dart';
 
 class RefCodeCubit extends Cubit<AppState> {
@@ -13,12 +14,12 @@ class RefCodeCubit extends Cubit<AppState> {
   checkPayment(BuildContext context) async {
     emit(Loading());
     try {
-      // var controller = Get.find<PaymentMethodCubit>();
+      var controller = Get.find<PaymentMethodCubit>();
       bool status =
           await PayWithRefCodeClass().checkPaymentStatus(response.toString());
       if (status == true) {
         emit(Success([]));
-        // controller.completeBooking(context);
+        controller.completePayment();
       } else {
         emit(Success([]));
         Get.snackbar("Failed", "Payment Not Completed , Try Again",
@@ -27,7 +28,6 @@ class RefCodeCubit extends Cubit<AppState> {
         Get.offAllNamed(AppRoutes().homePage);
       }
     } catch (e) {
-      print(e);
       emit(ServerError());
       Get.snackbar("Failed", "There's Something Wrong",
           backgroundColor: Colors.red.withOpacity(0.5),

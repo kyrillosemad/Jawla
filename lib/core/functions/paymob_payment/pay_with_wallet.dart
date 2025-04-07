@@ -15,7 +15,7 @@ paymobPayWithWallet(BuildContext context, double amount, String walletNumber,
       onPayment: (response) {
         if (response.responseCode ==
             '200' /*&& response.success==true في حالة الحساب الحقيقي */) {
-          // controller.completeBooking(context);
+      controller.completePayment();
         } else {
           controller.setInitialState();
           Get.snackbar(

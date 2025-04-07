@@ -1,11 +1,15 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/route_manager.dart';
+import 'package:jawla/core/classes/status.dart';
 import 'package:jawla/core/constants/routes_name.dart';
 import 'package:jawla/core/functions/paymob_payment/pay_with_card.dart';
 import 'package:jawla/core/functions/paymob_payment/pay_with_refcode.dart';
 import 'package:jawla/core/functions/paymob_payment/pay_with_wallet.dart';
 import 'package:jawla/core/functions/paypal_payment/pay_with_paypal.dart';
+import 'package:jawla/data/reservation/payment_request.dart';
+import 'package:jawla/data/reservation/reservation_request.dart';
 import 'package:jawla/view%20model/app_state.dart';
 
 class PaymentMethodCubit extends Cubit<AppState> {
@@ -15,6 +19,7 @@ class PaymentMethodCubit extends Cubit<AppState> {
   var mainImage = Get.arguments['mainImage'];
   var totalPrice = Get.arguments['totalPrice'];
   var price = Get.arguments['price'];
+  var tripId = Get.arguments['tripId'];
   String response = "";
 
   TextEditingController walletCont = TextEditingController();
@@ -81,5 +86,39 @@ class PaymentMethodCubit extends Cubit<AppState> {
     } else {
       emit(ServerError());
     }
+  }
+
+  completePayment() async {
+    emit(Loading());
+    Either<Status, Map> response = await paymentRequest(totalPrice, tripId);
+    response.fold((l) {
+      if (l.type == StatusType.internetFailure) {
+        emit(InternetError());
+      } else if (l.type == StatusType.serverFailure) {
+        emit(ServerError());
+      } else if (l.type == StatusType.apiFailure) {
+        emit(ApiFailure(l.errorData['errors']));
+      }
+    }, (r) {
+      completeReservation(r['id']);
+    });
+  }
+
+  completeReservation(
+    paymentId,
+  ) async {
+    var response = await reservationReq(paymentId, tripId);
+    response.fold((l) {
+      if (l.type == StatusType.internetFailure) {
+        emit(InternetError());
+      } else if (l.type == StatusType.serverFailure) {
+        emit(ServerError());
+      } else if (l.type == StatusType.apiFailure) {
+        emit(ApiFailure(l.errorData['errors']));
+      }
+    }, (r) {
+      Get.toNamed(AppRoutes().successPage);
+      emit(Success([]));
+    });
   }
 }

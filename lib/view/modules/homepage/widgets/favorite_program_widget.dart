@@ -123,7 +123,6 @@ class FavoriteProgramWidget extends StatelessWidget {
                           child: Container(
                             padding: const EdgeInsets.all(7),
                             width: 75.w,
-                            height: 12.h,
                             decoration: BoxDecoration(
                                 color: const Color.fromARGB(255, 218, 223, 235)
                                     .withOpacity(0.8)

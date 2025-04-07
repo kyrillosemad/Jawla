@@ -25,6 +25,7 @@ class TripCubit extends Cubit<AppState> {
     }, (r) {
       data = r['data'];
       vipData = data.where((trip) => trip['types'] == 'VIP').toList();
+      print(data[1]);
       emit(Success(data));
     });
   }

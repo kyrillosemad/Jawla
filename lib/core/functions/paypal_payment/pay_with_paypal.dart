@@ -60,7 +60,7 @@ payWithPaypal(
         ],
         note: "Contact us for any questions on your order.",
         onSuccess: (Map params) async {
-          // controller.completeBooking(context);
+          controller.completePayment();
         },
         onError: (error) {
           Get.snackbar(

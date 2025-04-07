@@ -14,7 +14,7 @@ paymobPayWithCard(
       onPayment: (response) {
         if (response.responseCode ==
             'APPROVED' /* && response.success == true  في حالة الحساب الحقيقي*/) {
-          // controller.completeBooking(context);
+          controller.completePayment();
         } else {
           controller.setInitialState();
           Get.snackbar(

@@ -17,6 +17,7 @@ class ProgramDetailsCubit extends Cubit<AppState> {
         "price": data[0]['price'],
         "persons": numOfPersons,
         "totalPrice": (data[0]['price']) * numOfPersons,
+        "tripId": data[0]['id']
       });
     } else {
       warningWidget("Failed", Icons.warning, "Please select the Amount");

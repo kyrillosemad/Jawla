@@ -12,11 +12,9 @@ class ProgramDetailsProgramWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 80.w,
-      height: 12.h,
       child: Container(
         padding: const EdgeInsets.all(7),
         width: 60.w,
-        height: 12.h,
         decoration: BoxDecoration(
             color: const Color.fromARGB(255, 218, 223, 235)
                 .withOpacity(0.8)

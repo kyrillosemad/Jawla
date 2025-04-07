@@ -25,10 +25,19 @@ class AppLink {
       'https://aldeeb.runasp.net/api/Favorite/remove/';
   static const String getFavoriteApi =
       'https://aldeeb.runasp.net/api/Favorite/list';
+  /////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////
   static const String addCarServiceApi =
       'https://aldeeb.runasp.net/api/SpecialService/car';
   static const String addGuideServiceApi =
       'https://aldeeb.runasp.net/api/SpecialService/tourguide';
   static const String addPackageServiceApi =
       'https://aldeeb.runasp.net/api/SpecialService/package';
+  static const String addPaymentApi =
+      'https://aldeeb.runasp.net/api/Payment/AddPayment';
+  static const String addReservationApi =
+      'https://aldeeb.runasp.net/api/Reservation/AddReservation';
+  static const String userTripsApi =
+      'https://aldeeb.runasp.net/api/History/user-trips';
+      
 }
