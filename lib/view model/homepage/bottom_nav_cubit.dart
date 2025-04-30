@@ -44,6 +44,4 @@ class BottomNavCubit extends Cubit<AppState> {
         inactiveColorPrimary: Colors.black,
         activeColorSecondary: Colors.white)
   ];
-
- 
 }

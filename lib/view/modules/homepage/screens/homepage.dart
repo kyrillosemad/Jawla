@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jawla/core/constants/colors.dart';
 import 'package:jawla/view%20model/homepage/homepage_cubit.dart';
-import 'package:jawla/view%20model/homepage/trip_cubit.dart';
 import 'package:jawla/view/modules/homepage/widgets/home_page_all_programs.dart';
 import 'package:jawla/view/modules/homepage/widgets/home_page_appbar.dart';
 import 'package:jawla/view/modules/homepage/widgets/home_page_custom_services.dart';
@@ -22,17 +21,14 @@ class HomePage extends StatelessWidget {
           BlocProvider(
             create: (context) => HomePageCubit(),
           ),
-          BlocProvider(
-            create: (context) => TripCubit(),
-          ),
+      
         ],
         child: Builder(
           builder: (context) {
             var homePageController = context.read<HomePageCubit>();
-            var tripController = context.read<TripCubit>();
             var favoriteController = context.read<FavoriteCubit>();
             homePageController.getProfileInfo(Variable().token);
-            tripController.getAllTrips();
+            homePageController.getAllTrips("");
             favoriteController.getFavoriteFun();
             return SafeArea(
                 child: Scaffold(
@@ -58,10 +54,10 @@ class HomePage extends StatelessWidget {
                         height: 1.h,
                       ),
                       HomePageAllPrograms(
-                          tripController: tripController,
+                          homePageCubit: homePageController,
                           favoriteController: favoriteController),
                       HomePageVipPrograms(
-                          tripController: tripController,
+                          homePageCubit: homePageController,
                           favoriteController: favoriteController),
                       SizedBox(
                         height: 1.h,

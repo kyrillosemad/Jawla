@@ -11,6 +11,7 @@ import 'package:jawla/core/functions/paypal_payment/pay_with_paypal.dart';
 import 'package:jawla/data/reservation/payment_request.dart';
 import 'package:jawla/data/reservation/reservation_request.dart';
 import 'package:jawla/view%20model/app_state.dart';
+import 'package:jawla/view/widgets/warning_widget.dart';
 
 class PaymentMethodCubit extends Cubit<AppState> {
   PaymentMethodCubit() : super(Initial());
@@ -98,6 +99,7 @@ class PaymentMethodCubit extends Cubit<AppState> {
         emit(ServerError());
       } else if (l.type == StatusType.apiFailure) {
         emit(ApiFailure(l.errorData['errors']));
+        warningWidget("Failed", Icons.error, "${l.errorData['errors']}");
       }
     }, (r) {
       completeReservation(r['id']);
@@ -115,6 +117,7 @@ class PaymentMethodCubit extends Cubit<AppState> {
         emit(ServerError());
       } else if (l.type == StatusType.apiFailure) {
         emit(ApiFailure(l.errorData['errors']));
+        warningWidget("Failed", Icons.error, "${l.errorData['errors']}");
       }
     }, (r) {
       Get.toNamed(AppRoutes().successPage);

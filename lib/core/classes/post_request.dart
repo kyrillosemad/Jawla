@@ -14,20 +14,18 @@ class PostRequest {
           body: jsonEncode(data),
           headers: headers,
         );
-        print(response.statusCode);
+
         if (response.statusCode == 200 || response.statusCode == 201) {
           var data = jsonDecode(response.body);
           return right(data);
         } else {
           var errors = jsonDecode(response.body);
-          print(errors);
           return left(Status.apiFailure(errors));
         }
       } else {
         return left(Status.internetFailure);
       }
     } catch (e) {
-      print(e);
       return left(Status.serverFailure);
     }
   }

@@ -27,7 +27,7 @@ class GetRequest {
         return left(Status.internetFailure);
       }
     } catch (e) {
-      print(e);
+     
       return left(Status.serverFailure);
     }
   }

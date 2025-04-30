@@ -23,5 +23,7 @@ class AppImages {
   final String masterCard = "${rootImage}masterCard.png";
   final String E_Wallet = "${rootImage}mobWallet.png";
   final String refCode = "${rootImage}ref_code.png";
-    final String paypal = "${rootImage}paypal.png";
+  final String paypal = "${rootImage}paypal.png";
+  final String reserved =
+      "${rootImage}reserved-ribbon-reserved-round-green-sign-reserved-WTAMGJ.jpg";
 }

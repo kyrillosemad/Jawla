@@ -12,7 +12,6 @@ import 'package:jawla/view/widgets/custom_appbar.dart';
 import 'package:jawla/view/widgets/custom_text_form_field.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../widgets/warning_widget.dart';
 
 class ChangeAccountData extends StatelessWidget {

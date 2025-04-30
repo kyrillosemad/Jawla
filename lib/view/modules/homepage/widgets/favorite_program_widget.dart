@@ -1,5 +1,4 @@
 // ignore_for_file: unnecessary_cast
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jawla/core/constants/colors.dart';
@@ -8,18 +7,16 @@ import 'package:jawla/core/constants/lottie.dart';
 import 'package:jawla/model/trip/trip_model.dart';
 import 'package:jawla/view%20model/app_state.dart';
 import 'package:jawla/view%20model/homepage/favorite_cubit.dart';
-import 'package:jawla/view%20model/homepage/trip_cubit.dart';
 import 'package:jawla/view/widgets/warning_widget.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
 class FavoriteProgramWidget extends StatelessWidget {
   final FavoriteCubit favoriteController;
-  final TripCubit tripController;
   const FavoriteProgramWidget(
       {super.key,
       required this.favoriteController,
-      required this.tripController});
+    });
 
   @override
   Widget build(BuildContext context) {

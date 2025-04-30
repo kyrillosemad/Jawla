@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/colors.dart';
 import 'package:jawla/view%20model/homepage/favorite_cubit.dart';
-import 'package:jawla/view%20model/homepage/trip_cubit.dart';
+import 'package:jawla/view%20model/homepage/homepage_cubit.dart';
 import 'package:jawla/view/modules/homepage/widgets/home_page_program_widget.dart';
 import 'package:sizer/sizer.dart';
 
 class HomePageAllPrograms extends StatelessWidget {
-  final TripCubit tripController;
+  final HomePageCubit homePageCubit;
   final FavoriteCubit favoriteController;
   const HomePageAllPrograms(
       {super.key,
-      required this.tripController,
+      required this.homePageCubit,
       required this.favoriteController});
 
   @override
@@ -35,7 +35,7 @@ class HomePageAllPrograms extends StatelessWidget {
             height: 1.5.h,
           ),
           HomePageProgramWidget(
-              tripController: tripController,
+              homePageCubit: homePageCubit,
               favoriteController: favoriteController),
         ],
       ),

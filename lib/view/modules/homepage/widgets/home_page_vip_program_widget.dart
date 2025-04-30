@@ -7,22 +7,22 @@ import 'package:jawla/core/constants/lottie.dart';
 import 'package:jawla/model/trip/trip_model.dart';
 import 'package:jawla/view%20model/app_state.dart';
 import 'package:jawla/view%20model/homepage/favorite_cubit.dart';
-import 'package:jawla/view%20model/homepage/trip_cubit.dart';
+import 'package:jawla/view%20model/homepage/homepage_cubit.dart';
 import 'package:jawla/view/widgets/warning_widget.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
 class HomePageVipProgramWidget extends StatelessWidget {
-  final TripCubit tripController;
+  final HomePageCubit homePageController;
   final FavoriteCubit favoriteController;
   const HomePageVipProgramWidget(
       {super.key,
-      required this.tripController,
+      required this.homePageController,
       required this.favoriteController});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TripCubit, AppState>(
+    return BlocConsumer<HomePageCubit, AppState>(
       listener: (context, state) {
         if (state is InternetError) {
           warningWidget("Connection Error", Icons.wifi_off_rounded,
@@ -38,7 +38,7 @@ class HomePageVipProgramWidget extends StatelessWidget {
         if (state is Loading) {
           return Center(
               child: LottieBuilder.asset(AppLottie().loading2, height: 20.h));
-        } else if (tripController.vipData.isEmpty ||
+        } else if (homePageController.vipData.isEmpty ||
             state is InternetError ||
             state is ServerError ||
             state is ApiFailure) {
@@ -63,10 +63,10 @@ class HomePageVipProgramWidget extends StatelessWidget {
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: tripController.vipData.length,
+              itemCount: homePageController.vipData.length,
               itemBuilder: (BuildContext context, int index) {
                 TripModel tripModel =
-                    TripModel.fromJson(tripController.vipData[index]);
+                    TripModel.fromJson(homePageController.vipData[index]);
                 bool isFavorite = context
                     .watch<FavoriteCubit>()
                     .isTripFavorite(tripModel.id.toString());
@@ -210,8 +210,8 @@ class HomePageVipProgramWidget extends StatelessWidget {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      tripController
-                                          .goToProgramDetails(tripModel.id);
+                                      homePageController
+                                          .goToProgramDetails2(tripModel.id);
                                     },
                                     child: Container(
                                       width: 20.w,

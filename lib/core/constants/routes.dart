@@ -14,7 +14,6 @@ import 'package:jawla/view/modules/homepage/screens/favorite.dart';
 import 'package:jawla/view/modules/homepage/screens/homepage.dart';
 import 'package:jawla/view/modules/homepage/screens/settings.dart';
 import 'package:jawla/view/modules/onboarding/screens/onboarding1.dart';
-import 'package:jawla/view/modules/onboarding/screens/onboarding2.dart';
 import 'package:jawla/view/modules/onboarding/screens/onboarding3.dart';
 import 'package:jawla/view/modules/special_services/screens/special_services.dart';
 import 'package:jawla/view/modules/travel_programs/screens/payment_method.dart';
@@ -24,7 +23,6 @@ import 'package:jawla/view/modules/travel_programs/screens/success_page.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
   AppRoutes().onboarding1: (context) => const OnBoarding1(),
-  AppRoutes().onboarding2: (context) => const OnBoarding2(),
   AppRoutes().onboarding3: (context) => const OnBoarding3(),
   AppRoutes().signIn: (context) => const SignIn(),
   AppRoutes().signUp: (context) => const SignUp(),
