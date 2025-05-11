@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:intl/intl.dart';
 import 'package:jawla/core/constants/colors.dart';
 import 'package:jawla/core/constants/images.dart';
 import 'package:jawla/model/bookings/bookings_car_model.dart';
 import 'package:jawla/view%20model/homepage/bookings_cubit.dart';
+import 'package:jawla/view/widgets/warning_widget.dart';
 import 'package:sizer/sizer.dart';
 
 class CarTrip extends StatelessWidget {
@@ -180,18 +182,90 @@ class CarTrip extends StatelessWidget {
               ),
               SizedBox(height: 0.5.h),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(
-                    Icons.monetization_on,
-                    size: 17,
-                    color: AppColor.secondColor,
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.monetization_on,
+                        size: 17,
+                        color: AppColor.secondColor,
+                      ),
+                      SizedBox(width: 2.w),
+                      Text(
+                        "${carTripModel.price} L.E",
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: AppColor.secondColor,
+                        ),
+                      )
+                    ],
                   ),
-                  SizedBox(width: 2.w),
-                  Text(
-                    "${carTripModel.price} L.E",
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: AppColor.secondColor,
+                  InkWell(
+                    onTap: () {
+                      TextEditingController priceController =
+                          TextEditingController();
+
+                      if (carTripModel.price != null) {
+                        Get.defaultDialog(
+                          title: "Set Price",
+                          content: Column(
+                            children: [
+                              const Text("Enter a new price for the trip:"),
+                              const SizedBox(height: 10),
+                              TextField(
+                                controller: priceController,
+                                keyboardType: TextInputType.number,
+                                decoration: InputDecoration(
+                                  hintText: "Enter price",
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          textConfirm: "Confirm",
+                          textCancel: "Cancel",
+                          confirmTextColor: Colors.white,
+                          cancelTextColor: AppColor.secondColor,
+                          buttonColor: AppColor.secondColor,
+                          onConfirm: () {
+                            final input = priceController.text;
+                            if (input.isNotEmpty) {
+                              final price = int.tryParse(input);
+                              if (price != null) {
+                                controller.updatePrice(
+                                    carTripModel.type, carTripModel.id, price);
+                                Get.back();
+                              } else {
+                                Get.snackbar("Invalid input",
+                                    "Please enter a valid number");
+                              }
+                            } else {
+                              Get.snackbar(
+                                  "Empty field", "Please enter a price");
+                            }
+                          },
+                        );
+                      } else {
+                        warningWidget("Warning", Icons.warning,
+                            "The admin has not set the price yet");
+                      }
+                    },
+                    child: Container(
+                      decoration: const BoxDecoration(
+                          color: AppColor.secondColor,
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      width: 25.w,
+                      height: 3.h,
+                      child: const Center(
+                          child: Center(
+                              child: Text(
+                        "Change price",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 10, color: Colors.white),
+                      ))),
                     ),
                   )
                 ],

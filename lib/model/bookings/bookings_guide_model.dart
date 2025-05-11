@@ -8,7 +8,7 @@
     String? startDate;
     String? endDate;
     String? state;
-    String? price;
+    var price;
 
     GuideTripModel(
         {this.type,

@@ -16,7 +16,7 @@ class BookingsTrip extends StatelessWidget {
     return Center(
       child: Container(
         margin: EdgeInsets.only(left: 10, right: 10, bottom: 2.h),
-        width: 95.w,
+        width: 90.w,
         height: 21.h,
         decoration: BoxDecoration(
           image: DecorationImage(

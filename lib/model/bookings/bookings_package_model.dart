@@ -9,7 +9,7 @@ class PackageTripModel {
   String? startDate;
   String? endDate;
   String? state;
-  String? price;
+  var price;
 
   PackageTripModel(
       {this.type,

@@ -39,5 +39,6 @@ class AppLink {
       'https://aldeeb.runasp.net/api/Reservation/AddReservation';
   static const String userTripsApi =
       'https://aldeeb.runasp.net/api/History/user-trips';
-      
+  static const String updatePrice =
+      'https://aldeeb.runasp.net/api/SpecialService/update-state/';
 }

@@ -8,7 +8,7 @@ class CarTripModel {
   String? receivePlace;
   String? returnPlace;
   String? state;
-  String? price;
+  var price;
 
   CarTripModel(
       {this.type,

@@ -91,7 +91,8 @@ class PaymentMethodCubit extends Cubit<AppState> {
 
   completePayment() async {
     emit(Loading());
-    Either<Status, Map> response = await paymentRequest(totalPrice, tripId);
+    Either<Status, Map> response = await paymentRequest(persons, tripId);
+
     response.fold((l) {
       if (l.type == StatusType.internetFailure) {
         emit(InternetError());
@@ -102,6 +103,7 @@ class PaymentMethodCubit extends Cubit<AppState> {
         warningWidget("Failed", Icons.error, "${l.errorData['errors']}");
       }
     }, (r) {
+
       completeReservation(r['id']);
     });
   }
@@ -109,6 +111,7 @@ class PaymentMethodCubit extends Cubit<AppState> {
   completeReservation(
     paymentId,
   ) async {
+
     var response = await reservationReq(paymentId, tripId);
     response.fold((l) {
       if (l.type == StatusType.internetFailure) {

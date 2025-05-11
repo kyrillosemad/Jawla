@@ -6,11 +6,11 @@ class BookingsTripModel {
   String? location;
   String? startDate;
   String? endDate;
-  int? price;
+  var price;
   int? persons;
   int? duration;
   String? description;
-  Images? images; // يجب أن تتأكد أن `images` غير null في JSON
+  Images? images;
   int? paymentAmount;
 
   BookingsTripModel(

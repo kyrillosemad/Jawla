@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jawla/core/constants/colors.dart';
+import 'package:jawla/data/static%20data/static_data.dart';
 import 'package:jawla/view%20model/homepage/discover_cubit.dart';
 import 'package:jawla/view/modules/homepage/widgets/discover_destination_widget.dart';
 import 'package:jawla/view/modules/homepage/widgets/discover_search.dart';
@@ -36,11 +37,10 @@ class Discover extends StatelessWidget {
                           height: 75.h,
                           child: ListView.builder(
                             physics: const BouncingScrollPhysics(),
-                            itemCount: 10,
+                            itemCount: StaticData().staticData.length,
                             itemBuilder: (BuildContext context, int index) {
                               return DiscoverDestinationWidget(
-                                controller: controller,
-                              );
+                                  destination: StaticData().staticData[index]);
                             },
                           ),
                         )

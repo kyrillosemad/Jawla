@@ -64,6 +64,7 @@ class BookingsProgramWidget extends StatelessWidget {
           return ListView.builder(
             itemCount: controller.data.length,
             itemBuilder: (context, index) {
+              print("type : ${controller.data}");
               final booking = controller.data[index];
               if (booking['type'] == 'Trip') {
                 BookingsTripModel tripModel =

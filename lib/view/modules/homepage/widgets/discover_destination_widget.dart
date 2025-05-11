@@ -3,11 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:jawla/core/constants/colors.dart';
 import 'package:jawla/core/constants/images.dart';
+import 'package:jawla/model/static%20data/static_data_model.dart';
 import 'package:sizer/sizer.dart';
 
 class DiscoverDestinationWidget extends StatelessWidget {
-  final controller;
-  const DiscoverDestinationWidget({super.key, required this.controller});
+  final StaticDataModel destination;
+
+  const DiscoverDestinationWidget({super.key, required this.destination});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,8 @@ class DiscoverDestinationWidget extends StatelessWidget {
             opacity: 0.15,
           ),
           color: AppColor.secondColor,
-          borderRadius: BorderRadius.circular(15), // زوايا أكثر انحناءً
-          border: Border.all(
-              color: Colors.white.withOpacity(0.8), width: 2), // إطار واضح
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: Colors.white.withOpacity(0.8), width: 2),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(1),
@@ -37,8 +38,9 @@ class DiscoverDestinationWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Title
             Text(
-              "Karnak Temple",
+              destination.label,
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.bold,
@@ -46,6 +48,7 @@ class DiscoverDestinationWidget extends StatelessWidget {
               ),
             ),
             SizedBox(height: 2.h),
+
             // Image Grid
             GridView.count(
               crossAxisCount: 2,
@@ -53,39 +56,41 @@ class DiscoverDestinationWidget extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               mainAxisSpacing: 2.w,
               crossAxisSpacing: 2.w,
-              children: List.generate(4, (index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: AssetImage(AppImages().bj1),
-                      fit: BoxFit.cover,
+              children: List.generate(
+                destination.images.length.clamp(0, 4),
+                (index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: NetworkImage(destination.images[index]),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                );
-              }),
+                  );
+                },
+              ),
             ),
             SizedBox(height: 2.h),
-            // Address & Favorite Icon
+
+            // Location
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    const Icon(Icons.location_on,
-                        color: Colors.white, size: 18),
-                    SizedBox(width: 2.w),
-                    Text(
-                      "Corniche El Nil, Luxor, Egypt.",
-                      style: TextStyle(color: Colors.white, fontSize: 10.sp),
-                    ),
-                  ],
+                const Icon(Icons.location_on, color: Colors.white, size: 18),
+                SizedBox(width: 2.w),
+                Expanded(
+                  child: Text(
+                    destination.location,
+                    style: TextStyle(color: Colors.white, fontSize: 10.sp),
+                  ),
                 ),
               ],
             ),
             SizedBox(height: 2.h),
+
+            // Info
             Text(
-              "Info:",
+              "Description:",
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
@@ -94,10 +99,7 @@ class DiscoverDestinationWidget extends StatelessWidget {
             ),
             SizedBox(height: 1.h),
             Text(
-              "• Construction Date: Began around 2000 BCE during the Middle Kingdom.\n"
-              "• Primary Builders: Pharaohs like Thutmose III, Hatshepsut, and Ramses II.\n"
-              "• Purpose: Dedicated to Amun-Ra, it was the main religious center of Thebes.\n"
-              "• Architectural Features: Hypostyle Hall with 134 massive columns.",
+              destination.description,
               style: TextStyle(color: Colors.white, fontSize: 10.sp),
             ),
           ],

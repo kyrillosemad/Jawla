@@ -14,7 +14,8 @@ class PostRequest {
           body: jsonEncode(data),
           headers: headers,
         );
-
+        print(response);
+        print(response.statusCode);
         if (response.statusCode == 200 || response.statusCode == 201) {
           var data = jsonDecode(response.body);
           return right(data);
